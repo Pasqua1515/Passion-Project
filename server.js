@@ -12,14 +12,22 @@ app.use(cors(corsOptions))
 app.use(express.json())
 //encoding
 app.use(express.urlencoded({
-    extended: true
+    extended: false
 }))
 
-app.get("/", (req, res) => {
-    res.json({
-        message: "Welcome to Pin-it"
-    })
-})
+// app.get("/", (req, res) => {
+//     res.json({
+//         message: "Welcome to Pin-it"
+//     })
+// })
+
+// app.post("/", (res, req) => {
+//     console.log("heya")
+// })
+
+//add routes
+require("./app/routes/user.routes")(app)
+
 
 //port
 const PORT = process.env.PORT || 8080;
